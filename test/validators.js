@@ -15,6 +15,13 @@ var blankGen = claire.transform(
 );
 
 describe('validators', function(){
+  it('re-exports Validation, FormError, etc', function(){
+    assert.isFunction(vs.Validation);
+    assert.isFunction(vs.Success);
+    assert.isFunction(vs.Failure);
+    assert.isFunction(vs.FormError);
+  });
+
   describe('notBlank', function(){
     it('is success when the field is not blank', claire.forAll(gen.Str)
       .given(function(s){return s.trim()})
